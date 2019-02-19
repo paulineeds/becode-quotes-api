@@ -1,8 +1,8 @@
     const jsonfile = require("jsonfile");
     const TheQuote = require("../models/quote.js");
     const mongoose = require("mongoose");
-    let cors = require("cors")
-    app.use(cors())
+    // let cors = require("cors")
+    // app.use(cors())
     module.exports = app => {
 
         app.get("/quotes", (req, res) => {
