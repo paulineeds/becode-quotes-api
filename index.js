@@ -7,15 +7,15 @@ let app = express();
 app.use(bodyParser.json());
 // require("./models/quote.js")(app);
 require("./routes/quoteroutes")(app);
-
+const uri = process.env.MONGODB_URI ||"mongodb+srv://root:root@cluster0-q30av.mongodb.net/quotesDB"
 
 mongoose.connect(
-    "mongodb+srv://root:root@cluster0-q30av.mongodb.net/quotesDB", {
+    uri, {
         useNewUrlParser: true
     });
 
 
-const port = 5000;
+const port = process.env.PORT||5000;
 
 
 app.listen(port, () => {
