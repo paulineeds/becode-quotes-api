@@ -1,18 +1,21 @@
 const express = require("express");
-const bodyParser = require("body-parser")
-// const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
 let app = express();
 
-
 app.use(bodyParser.json());
-
+// require("./models/quote.js")(app);
 require("./routes/quoteroutes")(app);
 
-let port = process.env.PORT || 5000;
-app.get('/', (req, res) => {
-    res.send('Hello World with Express')
-});
+
+mongoose.connect(
+    "mongodb+srv://root:root@cluster0-q30av.mongodb.net/quotesDB", {
+        useNewUrlParser: true
+    });
+
+
+const port = 5000;
 
 
 app.listen(port, () => {

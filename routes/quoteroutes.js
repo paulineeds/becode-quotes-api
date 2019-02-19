@@ -1,118 +1,54 @@
-module.exports = app => {
-
-    app.get("/demo", (req, res) => {
-
-        // Some dummy data
-        //
-
-        const demo = {
-            data1: "Hello",
-            data2: "World"
-        }
-
-        // res.send(data) or res.sendStatus(statusCode)
-        // To send a status message or data back to the requester
-        //
-
-        res.send(demo)
-    })
-
     const jsonfile = require("jsonfile");
+    const TheQuote = require("../models/quote.js");
+    const mongoose = require("mongoose");
 
-    app.get("/quotes", (req, res) => {
-        console.log("fetching all quotes");
+    module.exports = app => {
 
-        // jsonfile reading
-        jsonfile.readFile("./DB/quotes.json", function (err, content) {
-            // send file contents back to sender
-            res.send(content);
+        app.get("/quotes", (req, res) => {
+            console.log("fetching all quotes");
+            mongoose.model('TheQuote').find((err, quotes) => {
+                res.send(quotes)
+            });
         });
-    });
 
-    app.post("/quotes/new", (req, res) => {
-
-        let quote = req.body.quote
-        let author = req.body.author
-        let id = req.body.id
-
-        jsonfile.readFile("./DB/quotes.json", function (err, content) {
-
-            content.push({
-                quote: quote,
-                author: author,
-                id: id
+        app.post("/quotes/new", (req, res) => {
+            const aquote = new TheQuote({
+                _id: new mongoose.Types.ObjectId(),
+                quote: req.body.quote,
+                author: req.body.author
             });
-
-            console.log("added " + quote + " to DB");
-
-            jsonfile.writeFile("./DB/quotes.json", content, function (err) {
-                console.log(err);
-            });
-
+            aquote.save().then(result => {
+                    console.log(result);
+                })
+                .catch(err => console.log(err));
             res.sendStatus(200);
         });
-    });
 
-    app.delete("/quotes/destroy", (req, res) => {
-
-        let quote = req.body.quote;
-
-        jsonfile.readFile("./DB/quotes.json", function (err, content) {
-
-            for (var i = content.length - 1; i >= 0; i--) {
-
-                if (content[i].quote === quote) {
-                    console.log("removing " + content[i].quote + " from DB");
-                    content.pop(i);
-                }
-
-            }
-
-            jsonfile.writeFile("./DB/quotes.json", content, function (err) {
-                console.log(err);
+        app.delete("/quotes/destroy", (req, res) => {
+            TheQuote.findOneAndDelete({
+                _id: req.body._id
             });
-
-            res.sendStatus(200);
         });
-    });
-    app.put("/quotes", (req, res) => {
-        let quote;
-        let author = req.body.author;
 
-        jsonfile.readFile("./DB/quotes.json", function (err, content) {
-            for (var i = content.length - 1; i >= 0; i--) {
-                if (content[i].quote === req.query.quote) {
+        app.put("/quotes", (req, res) => {
+            TheQuote.findOneAndUpdate({
+                _id: req.body._id
+            }, {
+                quote: req.body.quote,
+                author: req.body.author
+            }).then(doc => {
+                console.log(doc)
+                res.send(doc)
+            })
+        })
 
-                    console.log("updated quote " + quote + " has now author : " + author);
-
-                    quotes = content[i];
-                    quotes.author = author;
-
-                }
-            }
-
-            jsonfile.writeFile("./DB/quotes.json", content, function (err) {
-                console.log(err);
+        app.get("/quote", (req, res) => {
+            const id = req.body._id
+            TheQuote.find({
+                _id: id
+            }).then(doc => {
+                console.log(doc)
+                res.send(doc)
             });
-
         });
-        res.send(quote);
-    });
-
-    app.get("/quote", (req, res) => {
-        let quotes;
-        let quote = req.query.quote;
-
-        jsonfile.readFile("./DB/quotes.json", function (err, content) {
-            for (var i = content.length - 1; i >= 0; i--) {
-                if (content[i].quote === quote) {
-                    console.log("found quote");
-                    console.log(content[i]);
-                    quotes = content[i];
-                }
-            }
-
-            res.send(quotes);
-        });
-    });
-};
+    };
