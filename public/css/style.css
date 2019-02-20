@@ -1,3 +1,22 @@
 body {
-    background-color:grey;
+    background-color:#7D7ABC;
+    font-family: 'Amatic SC', cursive;
+}
+h3{
+    color: #F3B61F;
+    font-style: italic;
+    font-size: 30px;
+    text-align: right;
+    padding: 5%;
+}
+p{
+    color: #EF767A;
+    font-size: 25px;
+    padding: 5%;
+}
+button{
+    background-color: #23F0C7;
+    width: 5%;
+    border-radius: 5%;
+    border-color: #F3B61F;
 }
