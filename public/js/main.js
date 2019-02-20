@@ -1,11 +1,9 @@
-// fetch('https://hidden-journey-32557.herokuapp.com/quotes',{mode: 'no-cors'})
-// .then(response => response.json())
-// .then(quote => console.log(quote))
-// // .catch(error => alert('Error:', error))
-
-fetch('https://hidden-journey-32557.herokuapp.com/quotes', {mode: 'no-cors'})
+fetch('https://hidden-journey-32557.herokuapp.com/quotes', {
+        method: "GET"
+    })
     .then(response => response.json())
-    .then(json => getQuote(json));
+    .then(json => getQuote(json))
+    .catch(error => alert('Error:', error));
 
 const getQuote = (data) => {
     console.log(data);
