@@ -2,6 +2,29 @@ body {
     background-color:#7D7ABC;
     font-family: 'Oswald', sans-serif;
 }
+
+.content{
+    position: relative;
+    height: 90vh;
+}
+
+button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 50vw;
+    border: 5px solid #EF767A;
+    background-color: #7D7ABC;
+    color: #F3B61F;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 30px;
+    outline-color: #23F0C7;
+}
+
 h3{
     color: #F3B61F;
     font-style: italic;
@@ -20,17 +43,14 @@ p{
     text-align: center;
     font-weight: light;
 }
-button{
+/* button{
     background-color:  #EF767A;
-    width: 7%;
+    width: 8%;
     padding: 1%;
     border-radius: 5%;
-    margin: auto;
-    display: block;
-    border-color: #F3B61F;
     border: 5px, solid;
     color: #F3B61F;
     font-size: 16px;
+    font-weight: bold;
     outline-color: #23F0C7;
-    position: fixed;
-}
+} */
