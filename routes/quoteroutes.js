@@ -47,7 +47,7 @@ module.exports = app => {
     })
 
     app.get("/quote", (req, res) => {
-        const id = req.body._id
+        const id = req.param._id
         TheQuote.find({
             _id: id
         }).then(doc => {

@@ -15,7 +15,7 @@ const handleLoad = (e) => {
     const randomQuote = e[Math.floor(Math.random() * e.length)];
     // console.log(randomQuote)
     h3.textContent = `"${randomQuote.quote}"`
-    p.textContent = randomQuote.author
+    p.textContent = `- ${randomQuote.author}`
 }
 
 const getQuote = (quotes) => {
@@ -27,7 +27,7 @@ const getQuote = (quotes) => {
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
         console.log(randomQuote)
         h3.textContent = `"${randomQuote.quote}"`
-        p.textContent = randomQuote.author
+        p.textContent = `- ${randomQuote.author}`
     }
 
 
