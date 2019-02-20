@@ -1,22 +1,32 @@
 body {
     background-color:#7D7ABC;
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Oswald', sans-serif;
 }
 h3{
     color: #F3B61F;
     font-style: italic;
-    font-size: 30px;
+    font-size: 60px;
     text-align: right;
     padding: 5%;
+    padding-bottom: 0px;
 }
 p{
-    color: #EF767A;
+    color:  #23F0C7;
     font-size: 25px;
     padding: 5%;
+    text-align: center;
 }
 button{
-    background-color: #23F0C7;
-    width: 5%;
+    background-color:  #EF767A;
+    width: 7%;
+    padding: 1%;
     border-radius: 5%;
+    margin: auto;
+    display: block;
     border-color: #F3B61F;
+    border: 5px, solid;
+    color: #F3B61F;
+    font-size: 16px;
+    outline-color: #23F0C7;
+    position: fixed;
 }

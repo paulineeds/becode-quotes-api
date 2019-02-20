@@ -15,6 +15,7 @@ app.use(express.static('public'));
 
 // require("./models/quote.js")(app);
 require("./routes/quoteroutes")(app);
+
 const uri = process.env.MONGODB_URI ||"mongodb+srv://root:root@cluster0-q30av.mongodb.net/quotesDB"
 
 mongoose.connect(
