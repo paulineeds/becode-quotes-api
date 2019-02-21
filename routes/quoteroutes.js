@@ -1,7 +1,6 @@
 const TheQuote = require("../models/quote.js");
 const mongoose = require("mongoose");
 
-
 module.exports = app => {
 
     app.get('/', (req, res) => {
@@ -17,7 +16,7 @@ module.exports = app => {
 
     app.post("/quotes/new", (req, res) => {
         const aquote = new TheQuote({
-            _id: new mongoose.Types.ObjectId(),
+            // _id: new mongoose.Types.ObjectId(),
             quote: req.body.quote,
             author: req.body.author
         });
@@ -47,7 +46,7 @@ module.exports = app => {
     })
 
     app.get("/quote", (req, res) => {
-        const id = req.param._id
+        const id = req.body._id
         TheQuote.find({
             _id: id
         }).then(doc => {

@@ -20,8 +20,20 @@
 
 
         </div>
-        <button>Quote</button>
+        <button id="quote">Quote</button>
     </div>
+
+    <form id="post" method="post" action="/quotes/new">
+        <label for="quote">Quote</label>
+        <input id='quote' type="text" name="quote">
+        <label for="author">Author</label>
+        <input id='author' type="text" name="author">
+        <label for="id">ID</label>
+        <input id='id' type="text" name="ID">
+        <button id='create'>Create</button>
+        <button id='delete'>Delete</button>
+    </form>
+
     <script src="js/main.js"></script>
 </body>
 

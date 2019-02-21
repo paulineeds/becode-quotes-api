@@ -31,5 +31,43 @@ const getQuote = (quotes) => {
     }
 
 
-    document.querySelector("button").addEventListener('click', handleClickButton);
+    document.querySelector("#quote").addEventListener('click', handleClickButton);
 };
+
+document.querySelector('#create').addEventListener('click',function(e){
+    e.preventDefault()
+    let valquote = document.querySelector('#quote').value;
+    let valauthor =document.querySelector('#author').value;
+
+    const addQuote={
+        method:'post',
+        mode:'cors',
+        headers: {"content-type": "application/json"},
+        body:JSON.stringify({
+            "quote":`${valquote}`,
+            "author": `${valauthor}`
+        })
+
+    }
+    fetch('/quotes/new',addQuote)
+})
+
+document.querySelector('#delete').addEventListener('click',function(e){
+    e.preventDefault()
+    let valquote = document.querySelector('#quote').value;
+    let valauthor =document.querySelector('#author').value;
+    let valid = document.querySelector('#id').value;
+
+    const deleteQuote={
+        method:'delete',
+        mode:'cors',
+        headers: {"content-type": "application/json"},
+        body:JSON.stringify({
+            "quote":`${valquote}`,
+            "author": `${valauthor}`,
+            "_id":`${valid}`
+        })
+
+    }
+    fetch('/quotes/destroy',deleteQuote)
+})
