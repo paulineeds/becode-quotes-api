@@ -20,20 +20,20 @@
 
 
         </div>
-        <button id="quote">Quote</button>
+        <button id="quotebutton">Quote</button>
     </div>
-
-    <form id="post" method="post" action="/quotes/new">
+    <div class='notcontent'>
+    <form id="post" method="delete" action="/quotes/destroy">
         <label for="quote">Quote</label>
-        <input id='quote' type="text" name="quote">
+            <input id='quote' type="text" name="quote">
         <label for="author">Author</label>
-        <input id='author' type="text" name="author">
+            <input id='author' type="text" name="author">
         <label for="id">ID</label>
-        <input id='id' type="text" name="ID">
+            <input id='id' type="text" name="ID">
         <button id='create'>Create</button>
         <button id='delete'>Delete</button>
     </form>
-
+</div>
     <script src="js/main.js"></script>
 </body>
 

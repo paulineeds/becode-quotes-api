@@ -31,7 +31,7 @@ const getQuote = (quotes) => {
     }
 
 
-    document.querySelector("#quote").addEventListener('click', handleClickButton);
+    document.querySelector("#quotebutton").addEventListener('click', handleClickButton);
 };
 
 document.querySelector('#create').addEventListener('click',function(e){
@@ -52,22 +52,35 @@ document.querySelector('#create').addEventListener('click',function(e){
     fetch('/quotes/new',addQuote)
 })
 
-document.querySelector('#delete').addEventListener('click',function(e){
-    e.preventDefault()
-    let valquote = document.querySelector('#quote').value;
-    let valauthor =document.querySelector('#author').value;
-    let valid = document.querySelector('#id').value;
+// document.querySelector('#delete').addEventListener('click',function(e){
+//     e.preventDefault()
+//     let valquote = document.querySelector('#quote').value;
+//     let valauthor =document.querySelector('#author').value;
+//     let valid = document.querySelector('#id').value;
 
-    const deleteQuote={
-        method:'delete',
-        mode:'cors',
-        headers: {"content-type": "application/json"},
-        body:JSON.stringify({
-            "quote":`${valquote}`,
-            "author": `${valauthor}`,
-            "_id":`${valid}`
-        })
+//     const deleteQuote={
+       
+//         method:'delete',
+//         mode:'cors',
+//         headers: {"content-type": "application/json"},
+//         body:JSON.stringify({
+//             // "quote":`${valquote}`,
+//             // "author": `${valauthor}`,
+//             "_id":`${valid}`
+            
+//         })
+       
+//     }
+    
+//     fetch('/quotes/destroy',deleteQuote)
+// })
 
-    }
-    fetch('/quotes/destroy',deleteQuote)
-})
+function remove(event){
+    event.preventDefault()
+    var id = event.target.getAttribute("data-id")
+    fetch(apiUrl + "/" + id,{
+      method: 'DELETE'
+    }).then(function(){
+      todos.removeChild(event.target.parentNode)
+    })
+  }

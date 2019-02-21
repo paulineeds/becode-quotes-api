@@ -5,11 +5,14 @@ body {
 
 .content{
     position: relative;
-    height: 96vh;
+    height: 99vh;
 }
-
-button {
-    /* position: absolute; */
+.notcontent{
+    position: relative;
+    height: 99vh;
+}
+#quotebutton {
+    position: absolute;
     bottom: 0;
     right: 0;
     left: 0;
@@ -23,6 +26,7 @@ button {
     font-weight: bold;
     padding: 30px;
     outline-color: #23F0C7;
+    margin-bottom: 1%;
 }
 
 h3{
@@ -47,14 +51,68 @@ p{
     text-align: center;
     font-weight: light;
 }
-/* button{
-    background-color:  #EF767A;
-    width: 8%;
-    padding: 1%;
-    border-radius: 5%;
-    border: 5px, solid;
-    color: #F3B61F;
-    font-size: 16px;
-    font-weight: bold;
+
+form {
+color:  #23F0C7;
+display: flex;
+flex-direction: column;
+padding-top: 8%;
+
+}
+input {
+    font-size: 50px;
+    width: 45%;
+    background-color:  #7D7ABC;
+    color: #EF767A;
     outline-color: #23F0C7;
-} */
+    border: 5px solid #F3B61F;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+label{
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding:1px;
+    
+}
+
+#create{
+    
+        position: absolute;
+        top:0;
+        bottom: 1;
+        right: 0;
+        left: 1;
+        margin: auto;
+        width: 50vw;
+        border: 5px solid #EF767A;
+        background-color: #7D7ABC;
+        color: #F3B61F;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 30px;
+        outline-color: #23F0C7;
+        margin-top: 1%;
+    
+}
+
+#delete{
+    
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 1;
+        margin: auto;
+        width: 50vw;
+        border: 5px solid #EF767A;
+        background-color: #7D7ABC;
+        color: #F3B61F;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 30px;
+        outline-color: #23F0C7;
+    
+}
