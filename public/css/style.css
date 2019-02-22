@@ -142,3 +142,17 @@ label {
 #delete:hover {
     border-style: dashed;
 }
+
+
+
+
+@media only screen and (max-width: 600px) {
+    h3{
+        font-size: 55px;
+        line-height: 55px;
+    }
+
+    p{
+        font-size: 15.3px;
+    }
+  }
