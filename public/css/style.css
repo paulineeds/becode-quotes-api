@@ -161,11 +161,16 @@ label {
 
     form{
         align-items: center;
-        text-align: right;
+        text-align: left;
     }
 
     input{
-        width: 80%;
+        width: 70%;
+    }
+
+    label{
+        width: 70%;
+        text-align: left;
     }
 
    #quotebutton{
