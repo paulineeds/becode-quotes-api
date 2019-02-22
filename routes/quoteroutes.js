@@ -16,7 +16,7 @@ module.exports = app => {
 
     app.post("/quotes/new", (req, res) => {
         const aquote = new TheQuote({
-            // _id: new mongoose.Types.ObjectId(),
+            _id: new mongoose.Types.ObjectId(),
             quote: req.body.quote,
             author: req.body.author
         });
@@ -27,10 +27,19 @@ module.exports = app => {
         res.sendStatus(200);
     });
 
-    app.delete("/quotes/destroy", (req, res) => {
-        TheQuote.findOneAndDelete({
-            _id: req.body._id
-        });
+    app.delete("/quotes/destroy/:id", (req, res) => {
+        // TheQuote.findOneAndDelete({
+        //     _id: req.body._id
+        
+        //    const id= req.params._id;
+        //    TheQuote.remove({
+        //        _id:id
+        //    })
+        TheQuote.findByIdAndRemove(req.params.id,(err, quote)=>{
+            if (err) throw err;
+            res.send(quote);
+        })
+        
     });
 
     app.put("/quotes", (req, res) => {

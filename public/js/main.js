@@ -36,8 +36,10 @@ const getQuote = (quotes) => {
 
 document.querySelector('#create').addEventListener('click',function(e){
     e.preventDefault()
+   
     let valquote = document.querySelector('#quote').value;
     let valauthor =document.querySelector('#author').value;
+  
 
     const addQuote={
         method:'post',
@@ -49,38 +51,54 @@ document.querySelector('#create').addEventListener('click',function(e){
         })
 
     }
+ 
     fetch('/quotes/new',addQuote)
+    .then(location.reload())
 })
 
-// document.querySelector('#delete').addEventListener('click',function(e){
-//     e.preventDefault()
-//     let valquote = document.querySelector('#quote').value;
-//     let valauthor =document.querySelector('#author').value;
-//     let valid = document.querySelector('#id').value;
-
-//     const deleteQuote={
+const deleteQuote = (e) => {
+ e.preventDefault()
+    // let valquote = document.querySelector('#quote').value;
+    // let valauthor =document.querySelector('#author').value;
+    let valid = document.querySelector('#id').value;
+console.log(valid)
+    // const deleteQuote={
        
-//         method:'delete',
-//         mode:'cors',
-//         headers: {"content-type": "application/json"},
-//         body:JSON.stringify({
-//             // "quote":`${valquote}`,
-//             // "author": `${valauthor}`,
-//             "_id":`${valid}`
+    //     method:'delete'
+    //     // mode:'cors',
+    //     // headers: {"content-type": "application/json"},
+    //     // body:JSON.stringify({
+    //     //     // "quote":`${valquote}`,
+    //     //     // "author": `${valauthor}`,
+    //     //     "_id":`${valid}`
             
-//         })
+    //     // })
        
-//     }
+    // }
     
-//     fetch('/quotes/destroy',deleteQuote)
-// })
-
-function remove(event){
-    event.preventDefault()
-    var id = event.target.getAttribute("data-id")
-    fetch(apiUrl + "/" + id,{
-      method: 'DELETE'
-    }).then(function(){
-      todos.removeChild(event.target.parentNode)
+    fetch(`https://hidden-journey-32557.herokuapp.com/quotes/destroy/${valid}`, {
+        method:'delete',
+        mode:'cors',
+        
+            
     })
-  }
+    .then(response => console.log(response))
+    .then(data => {
+        console.log(data)
+    })
+    // .then(location.reload())
+}
+
+   
+
+document.querySelector('#delete').addEventListener('mousedown',deleteQuote);
+
+// function remove(event){
+//     event.preventDefault()
+//     var id = event.target.getAttribute("data-id")
+//     fetch(apiUrl + "/" + id,{
+//       method: 'DELETE'
+//     }).then(function(){
+//       todos.removeChild(event.target.parentNode)
+//     })
+//   }
