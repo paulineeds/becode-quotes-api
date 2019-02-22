@@ -70,10 +70,13 @@ form {
     color: #23F0C7;
     display: flex;
     flex-direction: column;
-    padding-top: 12%;
-
+    padding-top: 18.8%;
 }
 
+#flex1{
+    display: flex;
+    flex-direction: column;
+}
 input {
     font-size: 40px;
     width: 45%;
@@ -98,7 +101,7 @@ label {
 
     position: absolute;
     top: 0;
-    bottom: 1;
+    bottom: 0;
     right: 0;
     left: 1;
     margin: auto;
