@@ -158,4 +158,28 @@ label {
     p{
         font-size: 15.3px;
     }
+
+    form{
+        align-items: center;
+        text-align: right;
+    }
+
+    input{
+        width: 80%;
+    }
+
+   
+
+    #delete{
+        position: relative;
+        margin-top: 3%;
+        width: 80%;
+        
+    }
+    #create{
+        position: relative;
+        margin-top:15%;
+        width: 80%;
+    }
+   
   }
