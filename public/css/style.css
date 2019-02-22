@@ -25,8 +25,18 @@ body {
     font-size: 1.5em;
     font-weight: bold;
     padding: 30px;
-    outline-color: #23F0C7;
+    /* outline-color: #23F0C7; */
+    outline:none;
     margin-bottom: 1%;
+}
+#quotebutton:hover{
+    border-style: dashed;
+    /* color: #23F0C7; */
+}
+
+#quotebutton:active{
+    /* border-style:; */
+    outline:none;
 }
 
 h3{
@@ -65,9 +75,10 @@ input {
     background-color:  #7D7ABC;
     color: #EF767A;
     outline-color: #23F0C7;
-    border: 5px solid #F3B61F;
+    outline-offset: 1px;
+    border: 3px solid #F3B61F;
     text-transform: uppercase;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 label{
     font-size: 50px;
